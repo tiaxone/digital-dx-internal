@@ -1,0 +1,110 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\.."
+		}
+	],
+	"settings": {},
+	"launch": {
+		"configurations": [
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "lambda-nodejs14.x:HelloWorldFunction",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "c:\\Digital-DX\\TestFolder\\lambda-nodejs14.x\\template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {}
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "lambda-nodejs14.x:HelloWorldFunction (nodejs14.x)",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "lambda-nodejs14.x/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {},
+					"runtime": "nodejs14.x"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API lambda-nodejs14.x:HelloWorldFunction (nodejs14.x)",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "lambda-nodejs14.x/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"api": {
+					"path": "/hello",
+					"httpMethod": "get",
+					"payload": {
+						"json": {}
+					}
+				},
+				"lambda": {
+					"runtime": "nodejs14.x"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "lambda-nodejs16.x:HelloWorldFunction",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "c:\\experiment\\lambda-nodejs16.x\\template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {}
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "lambda-nodejs16.x:HelloWorldFunction (nodejs16.x)",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "lambda-nodejs16.x/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {},
+					"runtime": "nodejs16.x"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API lambda-nodejs16.x:HelloWorldFunction (nodejs16.x)",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "lambda-nodejs16.x/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"api": {
+					"path": "/hello",
+					"httpMethod": "get",
+					"payload": {
+						"json": {}
+					}
+				},
+				"lambda": {
+					"runtime": "nodejs16.x"
+				}
+			}
+		]
+	}
+}

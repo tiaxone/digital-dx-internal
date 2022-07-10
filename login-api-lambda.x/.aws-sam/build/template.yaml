@@ -1,60 +1,61 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  login-api-lambda.x
+Description: 'login-api-lambda.x
 
   Sample SAM Template for login-api-lambda.x
-  
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+
+  '
 Globals:
   Function:
     Timeout: 3
-
 Resources:
   LoginApi:
-   Type: AWS::Serverless::Api
-   Properties:
-     StageName: Prod
-     Auth:
-        ApiKeyRequired: true 
-  LoginFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Api
     Properties:
-      CodeUri: login-lambda
+      StageName: Prod
+      Auth:
+        ApiKeyRequired: true
+  LoginFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: LoginFunction
       Handler: index.handler
       Runtime: nodejs16.x
       FunctionName: loginAPI
       Role: arn:aws:iam::388902109834:role/AuthLambdaRole
       Environment:
         Variables:
-          SECRET: "authSecret"
+          SECRET: authSecret
       Architectures:
-        - x86_64
+      - x86_64
       Events:
         HealthCheck:
           Type: Api
           Properties:
-            RestApiId: !Ref LoginApi
+            RestApiId:
+              Ref: LoginApi
             Path: /health
             Method: get
         Register:
           Type: Api
           Properties:
-            RestApiId: !Ref LoginApi
+            RestApiId:
+              Ref: LoginApi
             Path: /register
             Method: post
         Verify:
-          Type: Api 
+          Type: Api
           Properties:
-            RestApiId: !Ref LoginApi
+            RestApiId:
+              Ref: LoginApi
             Path: /verify
             Method: post
         Login:
-          Type: Api 
+          Type: Api
           Properties:
-            RestApiId: !Ref LoginApi
+            RestApiId:
+              Ref: LoginApi
             Path: /login
             Method: post
-
-
-
+    Metadata:
+      SamResourceId: LoginFunction

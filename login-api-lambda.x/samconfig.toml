@@ -1,0 +1,20 @@
+version = 0.1
+[prod]
+[prod.deploy]
+[prod.deploy.parameters]
+stack_name = "login-stack"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-vtev0mfmvz5m"
+s3_prefix = "login-stack"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
+
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "login-stack"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-vtev0mfmvz5m"
+s3_prefix = "login-stack"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []

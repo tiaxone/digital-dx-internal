@@ -1,14 +1,14 @@
 {
-  "body": "{\"message\": \"hello world\"}",
+  "body": "{\r\n\r\n    \"name\":\"Topher2\",\r\n    \"email\":\"topher2@email.com\",\r\n    \"username\": \"theTopher2\",\r\n    \"password\":\"password\"\r\n}",
   "resource": "/{proxy+}",
-  "path": "/path/to/resource",
+  "path": "/register",
   "httpMethod": "POST",
   "isBase64Encoded": false,
   "queryStringParameters": {
     "foo": "bar"
   },
   "pathParameters": {
-    "proxy": "/path/to/resource"
+    "proxy": "/register"
   },
   "stageVariables": {
     "baz": "qux"
@@ -53,7 +53,7 @@
       "userAgent": "Custom User Agent String",
       "user": null
     },
-    "path": "/prod/path/to/resource",
+    "path": "/register",
     "resourcePath": "/{proxy+}",
     "httpMethod": "POST",
     "apiId": "1234567890",
