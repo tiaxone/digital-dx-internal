@@ -12,13 +12,16 @@ exports.handler = async (event) => {
     console.log('Reqeust Event: ', event);
     let response;
     switch(true){
+        case event.httpMethod === 'OPTIONS':
+            response = util.buildCORSResponse(200, 'Success');
+            break;
         case event.httpMethod === 'GET' && event.path === healthPath:
             response = util.buildResponse(200, 'Health check passed');
             break; 
         case event.httpMethod === 'POST' && event.path === registerPath:
             const registerBody = JSON.parse(event.body);
             response = registerService.register(registerBody);
-            break; 
+            break;
         case event.httpMethod === 'POST' && event.path === loginPath:
             const loginBody = JSON.parse(event.body);
             response = loginService.login(loginBody);

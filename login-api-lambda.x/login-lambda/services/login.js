@@ -10,6 +10,7 @@ const defaultRole = 'customer';
 async function login(user) {
     const userId = user.userId;
     const password = user.password;
+    
     if(!user || !userId || !password) {
         return util.buildResponse(401, {message: 'username and password are required'})
     }

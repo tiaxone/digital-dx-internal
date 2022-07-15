@@ -2,7 +2,7 @@
   "body": "{\r\n\r\n    \"name\":\"Topher2\",\r\n    \"email\":\"topher2@email.com\",\r\n    \"username\": \"theTopher2\",\r\n    \"password\":\"password\"\r\n}",
   "resource": "/{proxy+}",
   "path": "/register",
-  "httpMethod": "POST",
+  "httpMethod": "OPTIONS",
   "isBase64Encoded": false,
   "queryStringParameters": {
     "foo": "bar"
