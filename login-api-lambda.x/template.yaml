@@ -15,8 +15,6 @@ Resources:
    Type: AWS::Serverless::Api
    Properties:
      StageName: Prod
-     Auth:
-        ApiKeyRequired: true 
       
   LoginFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -44,15 +42,33 @@ Resources:
             RestApiId: !Ref LoginApi
             Path: /register
             Method: post
+        RegisterOptions:
+          Type: Api
+          Properties:
+            RestApiId: !Ref LoginApi
+            Path: /register
+            Method: options
         Verify:
           Type: Api 
           Properties:
             RestApiId: !Ref LoginApi
             Path: /verify
             Method: post
+        VerifyOptions:
+          Type: Api
+          Properties:
+            RestApiId: !Ref LoginApi
+            Path: /verify
+            Method: options
         Login:
           Type: Api 
           Properties:
             RestApiId: !Ref LoginApi
             Path: /login
             Method: post
+        LoginOptions:
+          Type: Api
+          Properties:
+            RestApiId: !Ref LoginApi
+            Path: /login
+            Method: OPTIONS

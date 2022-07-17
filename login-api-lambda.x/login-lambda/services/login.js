@@ -26,7 +26,8 @@ async function login(user) {
 
     const userInfo = {
         userId: dynamoUser.userId,
-        name: dynamoUser.name
+        name: dynamoUser.name,
+        isAdmin: dynamoUser.role === 'admin'? true : false
     }
 
     const token = auth.generateToken(userInfo); 

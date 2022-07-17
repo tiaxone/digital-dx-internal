@@ -14,7 +14,7 @@ async function register(userInfo) {
     const role = userInfo.role ?? 'customer'
     const userId = userInfo.email.toLowerCase().trim();
     const companyName = userInfo.companyName;
-    if(!username || !name || !email || !password)
+    if(!name || !email || !password)
     {
         return util.buildResponse(404, {message: 'All fields are required'});
     }
@@ -30,7 +30,6 @@ async function register(userInfo) {
         userId: userId,
         email: email,
         role: role,
-        username: username,
         password: encryptedPW,
         companyName: companyName
     }
@@ -39,8 +38,7 @@ async function register(userInfo) {
     if(!saveUserResponse) {
         return util.buildResponse(503, {message: 'error saving user'});
     }
-
-    return util.buildResponse(200, {username: username});
+    return util.buildResponse(200, {userId: userId});
  }
 
  async function getUser(userId) {

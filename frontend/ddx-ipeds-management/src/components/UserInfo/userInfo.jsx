@@ -1,16 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { getUser, resetUserSession } from "../../Service/AuthService";    
 
-const Admin = () => {
+const UserDetail = () => {
     const user = getUser();
-
+  
     return (
         <div>
-            Welcome {user.name}, this the Adimn page
+            Welcome {user.name}, this the user detail page
           
         </div>
     )
 }
 
-export default Admin;
+export default UserDetail;

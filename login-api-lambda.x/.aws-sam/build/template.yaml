@@ -13,12 +13,6 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: Prod
-      Cors:
-        AllowMethods: '''OPTIONS,POST,GET,PUT,DELETE'''
-        AllowHeaders: '''content-type,X-Amz-Date,X-Amz-Security-Token,Authorization,X-Api-Key,X-Requested-With,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers'''''
-        AllowOrigin: '''*'''
-      Auth:
-        ApiKeyRequired: true
   LoginFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -47,6 +41,13 @@ Resources:
               Ref: LoginApi
             Path: /register
             Method: post
+        RegisterOptions:
+          Type: Api
+          Properties:
+            RestApiId:
+              Ref: LoginApi
+            Path: /register
+            Method: options
         Verify:
           Type: Api
           Properties:
@@ -54,6 +55,13 @@ Resources:
               Ref: LoginApi
             Path: /verify
             Method: post
+        VerifyOptions:
+          Type: Api
+          Properties:
+            RestApiId:
+              Ref: LoginApi
+            Path: /verify
+            Method: options
         Login:
           Type: Api
           Properties:
@@ -61,5 +69,12 @@ Resources:
               Ref: LoginApi
             Path: /login
             Method: post
+        LoginOptions:
+          Type: Api
+          Properties:
+            RestApiId:
+              Ref: LoginApi
+            Path: /login
+            Method: OPTIONS
     Metadata:
       SamResourceId: LoginFunction
