@@ -11,7 +11,7 @@ module.exports = {
         return sessionStorage.getItem('token');
         
     },
-
+    
     setUserSession: function(user, token){
         sessionStorage.setItem('user', JSON.stringify(user));
         sessionStorage.setItem('token', token);
